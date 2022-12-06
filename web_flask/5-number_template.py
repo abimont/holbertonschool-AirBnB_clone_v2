@@ -36,7 +36,7 @@ def number_route(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
-    data = {'title':'HBNB', 'number':n}
+    data = {'title': 'HBNB', 'number': n}
     return render_template('5-number.html', data=data)
 
 
