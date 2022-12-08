@@ -7,7 +7,7 @@ from models.city import City
 import os
 
 app = Flask(__name__)
-        
+
 
 @app.teardown_appcontext
 def teardown(exception):
