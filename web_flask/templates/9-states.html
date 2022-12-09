@@ -8,7 +8,11 @@
 <BODY>
 
     {% if id and id in list_ids %}
-    <H1>State: {{ state_name }}</H1>
+    {% for state in states %}
+    {% if state.id == id %}
+    <H1>State: {{ state.name }}</H1>
+    {% endif %}
+    {% endfor %}
     <H3>Cities:</H3>
     {% for city in cities | sort(attribute='name') %}
     {% if city.state_id == id %}
@@ -36,20 +40,3 @@
 
 </BODY>
 </HTML>
-
-
-<!-- <H1>States</H1>
-    <UL>
-        {% for state in states | sort(attribute='name') %}
-        <LI>
-            {{ state.id }}: <B>{{ state.name }}</B>
-            <UL>
-                {% for city in cities | sort(attribute='name') %}
-                {% if city.state_id == state.id %}
-                <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
-                {% endif %}
-                {% endfor %}
-            </UL>
-        </LI>
-        {% endfor %}
-    </UL> -->

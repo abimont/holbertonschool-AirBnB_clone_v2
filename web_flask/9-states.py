@@ -27,17 +27,13 @@ def states_route():
 def state_id(id):
     """ displays a HTML page """
     states = [state for state in storage.all(State).values()]
-    state_name = [state.name
-                  for state in storage.all(State).values()
-                  if state.id == id]
     list_ids = [state.id for state in storage.all(State).values()]
     cities = [city for city in list(storage.all(City).values())]
     return render_template(
         '9-states.html',
         cities=cities,
         states=states,
-        id=id, list_ids=list_ids,
-        state_name=state_name[0])
+        id=id, list_ids=list_ids)
 
 
 if __name__ == '__main__':
