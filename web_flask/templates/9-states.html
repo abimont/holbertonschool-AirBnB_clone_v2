@@ -8,7 +8,7 @@
 <BODY>
 
     {% if id and id in list_ids %}
-    <H1>State:</H1>
+    <H1>State: {{ state_name }}</H1>
     <H3>Cities:</H3>
     {% for city in cities | sort(attribute='name') %}
     {% if city.state_id == id %}
